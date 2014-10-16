@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MyActivity extends Activity {
@@ -32,5 +36,10 @@ public class MyActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void introducirTexto(View view){
+        EditText texto = (EditText) findViewById(R.id.editText);
+        TextView saludo = (TextView) findViewById(R.id.textView);
+        saludo.setText(((Button)view).getText().toString()+" "+texto.getText());
     }
 }
