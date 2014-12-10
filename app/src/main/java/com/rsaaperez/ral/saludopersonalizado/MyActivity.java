@@ -26,6 +26,7 @@ public class MyActivity extends Activity {
     private RadioButton sr;
     private RadioButton sra;
     private CheckBox timeCheckBox;
+    private RadioButton rbHola, rbAdios;
     ScrollView scrollView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MyActivity extends Activity {
         saludo = (TextView) findViewById(R.id.textView);
         sr = (RadioButton) findViewById(R.id.radioButton);
         sra = (RadioButton) findViewById(R.id.radioButton2);
+
         String salutation = null;
 
         // obtención de la fecha
@@ -75,27 +77,57 @@ public class MyActivity extends Activity {
     public void introducirTexto(View view) {
         Intent intento = new Intent(MyActivity.this,salutation.class);
         Bundle recipiente = new Bundle();
-        if (sr.isChecked()) {
-            intento.putExtra("Saludo", ((Button) view).getText().toString() + " " + sr.getText() + " " + texto.getText());
-            saludo.setText(((Button) view).getText().toString() + " " + sr.getText() + " " + texto.getText());
-            intento.putExtras(recipiente);
-            texto.setText("");
-            if ("".equals(texto.getText().toString())){
-                //mostrar toast
-                showToast();
-                startActivity(intento);
-                return;
+
+        rbHola = (RadioButton) findViewById(R.id.rbHola);
+        rbAdios = (RadioButton) findViewById(R.id.rbAdios);
+
+        if (rbHola.isChecked()) {
+            if (sr.isChecked()) {
+                intento.putExtra("Saludo", ("Hola" + " " + sr.getText() + " " + texto.getText()));
+                saludo.setText("Hola" + " " + sr.getText() + " " + texto.getText());
+                intento.putExtras(recipiente);
+                texto.setText("");
+                if ("".equals(texto.getText().toString())) {
+                    //mostrar toast
+                    showToast();
+                    startActivity(intento);
+                    return;
+                }
+            } else if (sra.isChecked()) {
+                intento.putExtra("Saludo", ("Hola" + " " + sra.getText() + " " + texto.getText()));
+                saludo.setText("Hola" + " " + sra.getText() + " " + texto.getText());
+                intento.putExtras(recipiente);
+                texto.setText("");
+                if ("".equals(texto.getText().toString())) {
+                    //mostrar toast
+                    showToast();
+                    startActivity(intento);
+                    return;
+                }
             }
-        } else if (sra.isChecked()) {
-            intento.putExtra("Saludo", (((Button) view).getText().toString() + " " + sra.getText() + " " + texto.getText()));
-            saludo.setText(((Button) view).getText().toString() + " " + sra.getText() + " " + texto.getText());
-            intento.putExtras(recipiente);
-            texto.setText("");
-            if ("".equals(texto.getText().toString())){
-                //mostrar toast
-                showToast();
-                startActivity(intento);
-                return;
+        } else if (rbAdios.isChecked()){
+            if (sr.isChecked()) {
+                intento.putExtra("Saludo", ("Adios" + " " + sr.getText() + " " + texto.getText()));
+                saludo.setText("Adios" + " " + sr.getText() + " " + texto.getText());
+                intento.putExtras(recipiente);
+                texto.setText("");
+                if ("".equals(texto.getText().toString())){
+                    //mostrar toast
+                    showToast();
+                    startActivity(intento);
+                    return;
+                }
+            } else if (sra.isChecked()) {
+                intento.putExtra("Saludo", ("Adios" + " " + sra.getText() + " " + texto.getText()));
+                saludo.setText("Adios" + " " + sra.getText() + " " + texto.getText());
+                intento.putExtras(recipiente);
+                texto.setText("");
+                if ("".equals(texto.getText().toString())){
+                    //mostrar toast
+                    showToast();
+                    startActivity(intento);
+                    return;
+                }
             }
         }
     }

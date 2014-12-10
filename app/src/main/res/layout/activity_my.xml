@@ -38,14 +38,14 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hola"
+                    android:text="@string/hola"
                     android:id="@+id/rbHola"
                     android:checked="false" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Adios"
+                    android:text="@string/adios"
                     android:id="@+id/rbAdios"
                     android:checked="false" />
 
