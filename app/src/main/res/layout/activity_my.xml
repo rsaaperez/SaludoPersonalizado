@@ -14,14 +14,10 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="216dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <EditText
             android:layout_width="fill_parent"
@@ -29,7 +25,31 @@
             android:id="@+id/editText"
             android:layout_weight="1"
             android:hint="@string/introduce"/>
+        <RadioGroup
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selecciona uno:" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hola"
+                    android:id="@+id/rbHola"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adios"
+                    android:id="@+id/rbAdios"
+                    android:checked="false" />
+
+        </RadioGroup>
             <RadioGroup
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
@@ -38,8 +58,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/saludo"
-                    android:id="@+id/textView2" />
+                    android:text="@string/saludo" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -55,20 +74,37 @@
                     android:id="@+id/radioButton2"
                     android:layout_weight="1" />
             </RadioGroup>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha"
+            android:id="@+id/cbFecha"
+            android:checked="false"
+            android:layout_weight="1" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/horizontalScrollView"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:visibility="gone">
 
+            <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/datePicker"
+                style="@android:style/Widget.DatePicker"
+                android:calendarViewShown="false"
+                android:spinnersShown="false" />
+        </ScrollView>
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/hola"
             android:id="@+id/button"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:onClick="introducirTexto"/>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
 
         <TextView
             android:layout_width="fill_parent"
@@ -77,6 +113,8 @@
             android:id="@+id/textView"
             android:gravity="center"
             android:layout_weight="1" />
+
+
 
     </LinearLayout>
 </RelativeLayout>

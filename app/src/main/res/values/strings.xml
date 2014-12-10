@@ -9,5 +9,8 @@
     <string name="saludo">Saludo</string>
     <string name="Sr">Sr</string>
     <string name="Sra">Sra</string>
+    <string name="showTime">Hora</string>
+    <string name="noNameMsg">Ya puede introducir un nuevo nombre</string>
+    <string name="title_activity_salutation">salutation</string>
 
 </resources>
