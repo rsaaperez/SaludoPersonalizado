@@ -25,32 +25,13 @@
             android:id="@+id/editText"
             android:layout_weight="1"
             android:hint="@string/introduce"/>
-        <RadioGroup
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
+
+        <Spinner
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:id="@+id/spinner"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selecciona uno:" />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/hola"
-                    android:id="@+id/rbHola"
-                    android:checked="false" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/adios"
-                    android:id="@+id/rbAdios"
-                    android:checked="false" />
-
-        </RadioGroup>
-            <RadioGroup
+        <RadioGroup
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -112,7 +93,7 @@
             android:textSize="@dimen/activity_horizontal_margin"
             android:id="@+id/textView"
             android:gravity="center"
-            android:layout_weight="1" />
+            android:layout_weight="0.5" />
 
 
 

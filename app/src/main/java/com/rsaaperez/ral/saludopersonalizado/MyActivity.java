@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -15,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -26,8 +28,9 @@ public class MyActivity extends Activity {
     private RadioButton sr;
     private RadioButton sra;
     private CheckBox timeCheckBox;
-    private RadioButton rbHola, rbAdios;
+    private Spinner spinner;
     ScrollView scrollView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,11 @@ public class MyActivity extends Activity {
                 }
             }
         });
+        //Añadido el SPINNER
+        spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.saludador, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 
 
@@ -75,13 +83,10 @@ public class MyActivity extends Activity {
     }
 
     public void introducirTexto(View view) {
-        Intent intento = new Intent(MyActivity.this,salutation.class);
+        Intent intento = new Intent(MyActivity.this, salutation.class);
         Bundle recipiente = new Bundle();
 
-        rbHola = (RadioButton) findViewById(R.id.rbHola);
-        rbAdios = (RadioButton) findViewById(R.id.rbAdios);
-
-        if (rbHola.isChecked()) {
+        if (spinner.getSelectedItem().toString().equals("Hola")) {
             if (sr.isChecked()) {
                 intento.putExtra("Saludo", ("Hola" + " " + sr.getText() + " " + texto.getText()));
                 saludo.setText("Hola" + " " + sr.getText() + " " + texto.getText());
@@ -105,13 +110,13 @@ public class MyActivity extends Activity {
                     return;
                 }
             }
-        } else if (rbAdios.isChecked()){
+        } else if (spinner.getSelectedItem().toString().equals("Adios")) {
             if (sr.isChecked()) {
                 intento.putExtra("Saludo", ("Adios" + " " + sr.getText() + " " + texto.getText()));
                 saludo.setText("Adios" + " " + sr.getText() + " " + texto.getText());
                 intento.putExtras(recipiente);
                 texto.setText("");
-                if ("".equals(texto.getText().toString())){
+                if ("".equals(texto.getText().toString())) {
                     //mostrar toast
                     showToast();
                     startActivity(intento);
@@ -122,7 +127,7 @@ public class MyActivity extends Activity {
                 saludo.setText("Adios" + " " + sra.getText() + " " + texto.getText());
                 intento.putExtras(recipiente);
                 texto.setText("");
-                if ("".equals(texto.getText().toString())){
+                if ("".equals(texto.getText().toString())) {
                     //mostrar toast
                     showToast();
                     startActivity(intento);
@@ -131,6 +136,7 @@ public class MyActivity extends Activity {
             }
         }
     }
+
     protected void showToast() {
         Context context = getApplicationContext();
         CharSequence text = getResources().getString(R.string.noNameMsg);
