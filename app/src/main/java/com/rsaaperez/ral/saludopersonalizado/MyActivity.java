@@ -75,10 +75,9 @@ public class MyActivity extends Activity {
     public void introducirTexto(View view) {
         Intent intento = new Intent(MyActivity.this,salutation.class);
         Bundle recipiente = new Bundle();
-        recipiente.putString("Saludo",((Button) view).getText().toString() + " " + sr.getText() + " " + texto.getText());
         if (sr.isChecked()) {
-            //intento.putExtra("Saludo", ((Button) view).getText().toString() + " " + sr.getText() + " " + texto.getText());
-            //saludo.setText(((Button) view).getText().toString() + " " + sr.getText() + " " + texto.getText());
+            intento.putExtra("Saludo", ((Button) view).getText().toString() + " " + sr.getText() + " " + texto.getText());
+            saludo.setText(((Button) view).getText().toString() + " " + sr.getText() + " " + texto.getText());
             intento.putExtras(recipiente);
             texto.setText("");
             if ("".equals(texto.getText().toString())){
@@ -88,8 +87,8 @@ public class MyActivity extends Activity {
                 return;
             }
         } else if (sra.isChecked()) {
-            //intento.putExtra("Saludo", (((Button) view).getText().toString() + " " + sra.getText() + " " + texto.getText()));
-            //saludo.setText(((Button) view).getText().toString() + " " + sra.getText() + " " + texto.getText());
+            intento.putExtra("Saludo", (((Button) view).getText().toString() + " " + sra.getText() + " " + texto.getText()));
+            saludo.setText(((Button) view).getText().toString() + " " + sra.getText() + " " + texto.getText());
             intento.putExtras(recipiente);
             texto.setText("");
             if ("".equals(texto.getText().toString())){
